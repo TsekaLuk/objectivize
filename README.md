@@ -4,95 +4,82 @@
 
 # objectivize
 
-**把"内心戏"私稿，折射成可对外发布的客观分析。**
+### 一句话，把"内心戏"私稿改成能直接发出去的客观分析
 
-*A water-shaped rewrite skill that refracts subjective, fourth-wall-breaking drafts into publishable, neutral third-party analysis.*
+把满是「老板说」「你应该」「我们这次」「他的隐性期待」的内部草稿，<br/>
+一键折射成**陌生人读着也挑不出立场**的第三方报告。
 
-![Claude Skill](https://img.shields.io/badge/Claude-Agent_Skill-4f46e5)
-![license](https://img.shields.io/badge/license-MIT-18181b)
-![lang](https://img.shields.io/badge/docs-中文-f59e0b)
-![shape](https://img.shields.io/badge/shape-water-38bdf8)
+[![Stars](https://img.shields.io/github/stars/TsekaLuk/objectivize?style=social)](https://github.com/TsekaLuk/objectivize)
+[![Built for Claude Code](https://img.shields.io/badge/built_for-Claude_Code-4f46e5)](https://docs.anthropic.com/en/docs/claude-code)
+[![License](https://img.shields.io/github/license/TsekaLuk/objectivize?color=18181b)](LICENSE)
+
+[**⭐ Star**](https://github.com/TsekaLuk/objectivize) · [安装](#-30-秒装上) · [看效果](#-30-秒看懂-before--after)
 
 </div>
 
 ---
 
-## 这是什么
+## 😖 你有没有过这种时刻
 
-一个 [Claude Code / Agent Skill](https://docs.anthropic.com/en/docs/claude-code)。
+写完一份分析，发出去前一看——"这读着像内部吐槽，不能给外人看。"
 
-你写完一份内部文稿——满是"老板说""你应该""我们这次""他的隐性期待""本文档即…"这种**只有圈内人才会这么说**的口吻——想直接发到 GitHub、知乎、对外白皮书。`objectivize` 把它改写成**陌生人读着也顺的客观第三方分析**：去掉立场与内心戏，留下判断与证据。
+于是你手动把"老板""你""我们"一个个抠掉，抠了半天还串味、还把要引用的原话也误删了。
 
-## 为什么它不是一张"敏感词替换表"
+**objectivize 把这件苦差变成一句话。**
 
-> **Be water, my friend.** —— 它不固化方法论。
+## ⚡ 30 秒看懂（Before → After）
 
-把"老板 → 需求方"写死，是化石。每份文稿"出戏"的方式都不同，所以 `objectivize` 的形状由**问题本身**决定：
-
-1. **先感知，后动手** —— 先画一张「**本文档专属**的主观泄漏地图」，类别只是火花，缺了别硬套、多了现场命名。下一份重新画。
-2. **改写，不是删除** —— 换框架，别丢内容。`老板的真实意图` → `项目意图`：立场没了，信息还在。
-3. **定一束镜，一以贯之** —— 先给每个圈内角色定一个中性称谓，再全篇统一（别让同一个人变成"项目方/需求方/决策方"三个人）。连"他讲了什么/没讲什么/为什么"这种复盘骨架，都换成客观分析骨架。
-4. **客观 ≠ 虚假自信** —— 保留"置信度/局限/需实测"这类诚实标注，它们恰恰是客观的标志。
-5. **规模化有纪律** —— 术语统一可脚本化，但**字典每次现建**；机械替换后必查"被已被"这类病句；下游渲染产物（HTML/PDF/索引）要重建。
-
-## ❤️ 心脏：分清「泄漏」与「证据」
-
-客观化最容易犯的错，是把**证据也抹掉、或把真实数据也改了**——那不是客观，是失真甚至造假。
-
-> **唯一判据：它是被观察到的事实，还是写作者的口吻？事实留，口吻改。**
-
-| 类型 | 处理 | 例 |
-|---|---|---|
-| 直接引语（证据） | **保留**（可中性归因） | 受访者原话「我绝对不碰软件」→ 留着 |
-| 第一人称转述（口吻） | **改写** | 「别给我天马行空」→「要求方案有据可循」 |
-| 真实数据 / 用户原话 | **一字不动** | 用户差评里**正好**写了「老板」→ 原样保留，改它=篡改证据 |
-
-最后一行是血泪：清理时差点把一条真实用户评论里的"老板"当敏感词扫掉——那会污染整份数据集。**证据神圣不可动。**
-
-## Before → After
-
-| 私稿（出戏） | 公开稿（客观） |
+| 你写的（出戏私稿） | 它改的（客观公开稿） |
 |---|---|
-| 老板真正想要的不是一份功能清单 | 项目要的不是一份功能清单 |
+| **老板**真正想要的不是一份功能清单 | 项目要的不是一份功能清单 |
 | 否则**你会**把错的前提做成漂亮的错答案 | 否则容易把错的前提做成漂亮的错答案 |
 | 第三问：这场会**为什么这么讲** | 深层动机、商业逻辑与隐性约束 |
-| 本文档即此项交付（自指、破第四面墙） | *（删；或客观陈述其结论）* |
+| 用户差评里写了"老板"（真实数据） | ✅ **原样保留** —— 证据不可动 |
 
-## 安装
+> 最后一行，是它和"查找替换"的**本质区别** 👇
+
+## 🧠 为什么不是一个"敏感词替换表"
+
+把「老板 → 需求方」写死，对这一份管用，对下一份就翻车。`objectivize` 不固化方法论：
+
+- **先感知** —— 这一份文稿**特有**的主观泄漏在哪，对症下药；下一份重新感知。
+- **一条判据** —— 是被观察到的**事实**，还是写作者的**口吻**？→ 事实留，口吻改。
+- 所以它**绝不动**真实数据与直接引语（那是证据，改了 = 造假），只重铸立场与框架。
+
+> 一句话：**它拿掉的是"谁在说"，留下的是"说了什么"。**
+
+## 🚀 30 秒装上
 
 ```bash
-# Claude Code（用户级技能）
 git clone https://github.com/TsekaLuk/objectivize ~/.claude/skills/objectivize
-# 重开 session 即可被自动触发
 ```
 
-或把 `SKILL.md` 拷到任意技能目录。
+重开一个 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 会话，然后对它说人话：
 
-## 怎么触发
+> 「把这份**客观化**一下，能直接发知乎」<br/>
+> 「去掉**内心戏 / 出戏**的话，要第三方口吻」<br/>
+> *“make this read like a neutral analyst wrote it — strip the insider voice”*
 
-直接说人话即可，例如：
+## ✅ 它替你过的五道关
 
-- 「把这份**客观化**一下，能直接发知乎」
-- 「去掉**内心戏** / **出戏**的话，要第三方口吻」
-- 「这读着像内部备忘录，帮我改成对外能发的」
-- “make this read like a neutral analyst wrote it / strip the insider voice”
+- [ ] 还有"你 / 我们 / 老板"把读者或圈内人拉进来吗（**引语除外**）？
+- [ ] 把猜测写成事实了吗？暴露"这是怎么做出来的"了吗？
+- [ ] 同一角色全篇一个称谓吗？
+- [ ] **真实数据与引语一字未动吗？**
+- [ ] 置信度与局限还在吗（客观 ≠ 虚假自信）？
 
-## 自检表（改完问自己）
+## ⭐ 喜欢就点个 Star
 
-把成品想象成被陌生人在公开平台读到：
+如果它帮你省下了手动抠字的时间，[**给个 Star**](https://github.com/TsekaLuk/objectivize) 是最好的反馈——也让更多人写出"能发出去"的东西。
 
-- [ ] 还有没有"你/我们/对方/老板"这类把读者或圈内人拉进来的词（**引语除外**）？
-- [ ] 有没有把猜测写成事实？有没有暴露"这是怎么做出来的"？
-- [ ] 同一角色是否全篇一个称谓？
-- [ ] 真实数据与直接引语是否一字未动？
-- [ ] 置信度与局限是否还在？
+欢迎 Issue / PR：你遇到的每一种新"出戏"形态，都是它下一次进化的火花。
 
-> 任一条没过，回第一步——但**别把这张自检表也变成新模板**。
+<div align="center">
 
-## 哲学
+**[⭐ Star this repo](https://github.com/TsekaLuk/objectivize)** — 把内心戏留给自己，把客观留给世界。
 
-形随功能（form follows function）。设计理念致敬 [**棱镜 Prism** by Adu](https://github.com/) —— 做水的形状，让产物与问题同构。
+</div>
 
-## License
+---
 
-[MIT](LICENSE) © TsekaLuk
+<sub>MIT © TsekaLuk</sub>
